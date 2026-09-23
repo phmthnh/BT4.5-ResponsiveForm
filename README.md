@@ -1,45 +1,66 @@
-# BT4.5 – Thiết kế Responsive Form với TableLayoutPanel và Anchor/Dock
+# 📐 Bài Tập 4.5 – Responsive Form với TableLayoutPanel
 
-> **Môn:** Lập trình Windows Forms với C# | **Framework:** .NET 10.0
+Bài tập thiết kế giao diện quản lý danh sách chuẩn **responsive** — giao diện tự co giãn theo kích thước cửa sổ, không bị vỡ layout khi phóng to Maximize.
 
-## Mục tiêu
-Thiết kế Form quản lý **chuẩn responsive** — không vỡ giao diện khi phóng to Maximize cửa sổ.
+---
 
-## Tính năng & Layout
+## 📋 Mô tả
 
-| Thành phần | Cấu hình |
-|------------|----------|
-| `TableLayoutPanel` | `Dock = Fill` · 2 cột: **30%** và **70%** |
-| Cột trái (30%) | `GroupBox` chứa các `TextBox` nhập liệu · Anchor = `Top, Left, Right` |
-| Cột phải (70%) | `DataGridView` hiển thị danh sách · tự co giãn |
-| Nút bấm | Anchor = `Bottom, Right` — luôn ở góc phải dưới khi resize |
-| `btnAdd` | Thêm dòng mới vào `DataGridView` |
-| `btnDelete` | Xóa dòng đang chọn (có xác nhận) |
-| `btnClear` | Xóa trắng form nhập liệu |
+Ứng dụng quản lý danh sách người dùng với bố cục hai cột linh hoạt:
+- **Cột trái (30%)** — khu vực nhập liệu với GroupBox, các TextBox tự giãn theo chiều ngang
+- **Cột phải (70%)** — DataGridView hiển thị danh sách, các nút bấm luôn nằm ở góc phải dưới
 
-## Demo
+Kỹ thuật chính sử dụng:
+- `TableLayoutPanel` với `Dock = Fill` và tỷ lệ cột `30% / 70%`
+- `TextBox` đặt `Anchor = Top, Left, Right` → tự co giãn ngang
+- Nút bấm đặt `Anchor = Bottom, Right` → luôn bám góc phải dưới
+
+---
+
+## 🖼️ Giao diện
 
 ### Giao diện mặc định
-![Responsive Form - Giao diện](Screenshot%202026-09-23%20165055.png)
+![Giao diện chính](Screenshot%202026-09-23%20165055.png)
 
-### Thêm dữ liệu mới
-![Responsive Form - Thêm thành công](Screenshot%202026-09-23%20165205.png)
+### Thêm người dùng mới
+![Thêm thành công](Screenshot%202026-09-23%20165205.png)
 
 ### Xóa dòng (có xác nhận)
-![Responsive Form - Xác nhận xóa](Screenshot%202026-09-23%20165240.png)
+![Xác nhận xóa](Screenshot%202026-09-23%20165240.png)
 
-### Sau khi xóa
-![Responsive Form - Sau khi xóa](Screenshot%202026-09-23%20165309.png)
+### Sau khi xóa dữ liệu
+![Sau khi xóa](Screenshot%202026-09-23%20165309.png)
 
-## Cách chạy
+---
 
+## ⚙️ Các thành phần chính
+
+| Tên Control | Cấu hình | Chức năng |
+|-------------|----------|-----------|
+| `TableLayoutPanel` | `Dock = Fill` · 30% / 70% | Khung bố cục chính |
+| `GroupBox` | Cột trái | Nhóm các ô nhập liệu |
+| `txtName` `txtEmail` `txtPhone` | `Anchor = Top,Left,Right` | Tự co giãn theo cột |
+| `DataGridView` | `Dock = Fill` | Hiển thị danh sách |
+| `btnAdd` | `Anchor = Bottom,Right` | Thêm dòng mới |
+| `btnDelete` | `Anchor = Bottom,Right` | Xóa dòng đang chọn |
+| `btnClear` | `Anchor = Bottom,Right` | Xóa trắng form nhập |
+
+---
+
+## 🚀 Cách chạy
+
+**Bằng Visual Studio:**
+1. Mở file `BT4_5_ResponsiveForm.sln`
+2. Nhấn `F5` để chạy
+
+**Bằng terminal:**
 ```bash
 dotnet run
 ```
 
-hoặc mở file `BT4_5_ResponsiveForm.sln` bằng **Visual Studio 2022+** và nhấn `F5`.
+---
 
-## Yêu cầu hệ thống
+## 🛠️ Yêu cầu
 - .NET 10.0 SDK
-- Windows OS (Windows Forms)
-- Visual Studio 2022 (khuyến nghị)
+- Windows OS
+- Visual Studio 2022 trở lên
